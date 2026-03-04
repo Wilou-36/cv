@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Do Rego Williams</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+
+/* ══════════════════════════════════════
+   VARIABLES & THEME
+══════════════════════════════════════ */
+:root {
+  /* Sidebar */
+  --sb-bg:       #05080f;
+  --sb-bg2:      #090d1a;
+  /* Main */
+  --main-bg:     #0c0f1e;
+  --card-bg:     #111526;
+  --card-bg2:    #161b30;
+  /* Accents */
+  --blue:        #3d72ff;
+  --blue-l:      #6b95ff;
+  --green:       #2ee8a0;
+  --orange:      #ff8f44;
+  --pink:        #ff4db0;
+  /* Text */
+  --text-white:  #eef2ff;
+  --text-sb:     rgba(238,242,255,.82);
+  --text-dim:    rgba(238,242,255,.45);
+  --text-main:   #d8defc;
+  --text-muted:  #5a6690;
+  /* Borders */
+  --border:      rgba(61,114,255,.14);
+  --border-b:    rgba(61,114,255,.42);
+  /* Fonts */
+  --mono: 'Space Mono', monospace;
+  --body: 'Outfit', sans-serif;
+  /* Misc */
+  --ease: cubic-bezier(.25,1,.5,1);
+}
+
+/* ══════════════════════════════════════
+   RESET
+══════════════════════════════════════ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { font-size: 15px; }
+body {
+  font-family: var(--body);
+  background: #020408;
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 36px 20px 70px;
+  position: relative;
+}
+
+/* Radial ambient light */
+body::before {
+  content: '';
+  position: fixed;
+  top: -200px; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(61,114,255,.07) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ══════════════════════════════════════
+   TOPBAR (screen only)
+══════════════════════════════════════ */
+.topbar {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+  position: relative;
+  z-index: 1;
+}
+.tb-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: .78rem;
+  color: var(--blue);
+  font-weight: 700;
+  letter-spacing: .05em;
+}
+.tb-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+  animation: blink 2.2s infinite;
+}
+.tb-right { display: flex; gap: 10px; align-items: center; }
+.btn-print {
+  font-family: var(--mono);
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all .25s var(--ease);
+  display: flex; align-items: center; gap: 7px;
+}
+.btn-print:hover {
+  background: var(--blue-l);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(61,114,255,.38);
+}
+.btn-back {
+  font-family: var(--mono);
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid rgba(61,114,255,.22);
+  padding: 9px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .25s var(--ease);
+  display: flex; align-items: center; gap: 6px;
+}
+.btn-back:hover { border-color: var(--blue); color: var(--blue); }
+
+/* ══════════════════════════════════════
+   CV SHELL
+══════════════════════════════════════ */
+.cv {
+  width: 100%;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow:
+    0 0 0 1px rgba(61,114,255,.06),
+    0 40px 100px rgba(0,0,0,.7),
+    0 0 80px rgba(61,114,255,.04);
+  position: relative;
+  z-index: 1;
+  animation: slideUp .7s var(--ease) both;
+}
+
+/* ══════════════════════════════════════
+   SIDEBAR
+══════════════════════════════════════ */
+.sidebar {
+  background: var(--sb-bg);
+  padding: 40px 26px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative orbs */
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(61,114,255,.1) 0%, transparent 68%);
+  pointer-events: none;
+}
+.sidebar::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: -60px;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(46,232,160,.07) 0%, transparent 68%);
+  pointer-events: none;
+}
+
+/* Diagonal stripe top */
+.sb-stripe {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--green), var(--blue));
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Avatar */
+.avatar-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 22px;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+.avatar {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #111828, #1a2545);
+  border: 2px solid rgba(61,114,255,.45);
+  box-shadow: 0 0 30px rgba(61,114,255,.2), inset 0 0 20px rgba(61,114,255,.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--blue-l);
+  position: relative;
+  z-index: 2;
+}
+.avatar-ring {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 114px; height: 114px;
+  border-radius: 50%;
+  border: 1px dashed rgba(61,114,255,.2);
+  transform: translate(-50%,-50%);
+  animation: spin 14s linear infinite;
+  z-index: 1;
+}
+.avatar-ring2 {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 126px; height: 126px;
+  border-radius: 50%;
+  border: 1px solid rgba(46,232,160,.08);
+  transform: translate(-50%,-50%);
+  animation: spin 22s linear infinite reverse;
+  z-index: 1;
+}
+
+/* Name */
+.sb-name {
+  font-family: var(--mono);
+  font-size: 1.06rem;
+  font-weight: 700;
+  color: var(--text-white);
+  text-align: center;
+  line-height: 1.3;
+  letter-spacing: .04em;
+  margin-bottom: 4px;
+  position: relative; z-index: 1;
+}
+.sb-role {
+  font-family: var(--body);
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-align: center;
+  margin-bottom: 10px;
+}
+.sb-chips {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+.sb-chip {
+  font-family: var(--mono);
+  font-size: .56rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background: var(--blue);
+  color: #fff;
+  padding: 3px 9px;
+  border-radius: 4px;
+}
+.sb-chip.alt {
+  background: rgba(61,114,255,.12);
+  border: 1px solid rgba(61,114,255,.3);
+  color: var(--blue-l);
+}
+
+/* Section label */
+.sb-label {
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 13px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  position: relative; z-index: 1;
+}
+.sb-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(61,114,255,.3), transparent);
+}
+
+.sb-section {
+  margin-bottom: 24px;
+  position: relative; z-index: 1;
+}
+
+/* Contact items */
+.ci {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 11px;
+}
+.ci-ico {
+  width: 28px; height: 28px;
+  background: rgba(61,114,255,.1);
+  border: 1px solid rgba(61,114,255,.18);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .82rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.ci-body { flex: 1; }
+.ci-body strong {
+  display: block;
+  font-size: .8rem;
+  color: var(--text-white);
+  font-weight: 600;
+  line-height: 1.4;
+}
+.ci-body span {
+  font-size: .74rem;
+  color: var(--text-dim);
+}
+
+/* Skill bars */
+.sk {
+  margin-bottom: 11px;
+}
+.sk-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.sk-name { font-size: .78rem; color: var(--text-sb); }
+.sk-pct  { font-family: var(--mono); font-size: .6rem; color: var(--text-dim); }
+.sk-track {
+  height: 3px;
+  background: rgba(255,255,255,.07);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.sk-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--green), var(--blue));
+  transform-origin: left;
+  animation: growBar 1.2s var(--ease) both;
+}
+
+/* Qualités pills */
+.qual-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.qual {
+  font-size: .72rem;
+  background: rgba(61,114,255,.08);
+  border: 1px solid rgba(61,114,255,.2);
+  color: rgba(238,242,255,.65);
+  padding: 4px 12px;
+  border-radius: 100px;
+  transition: border-color .2s, color .2s;
+}
+.qual:hover { border-color: rgba(61,114,255,.5); color: var(--blue-l); }
+
+/* Le petit plus */
+.plus-card {
+  background: rgba(46,232,160,.05);
+  border: 1px solid rgba(46,232,160,.18);
+  border-radius: 11px;
+  padding: 14px;
+  font-size: .78rem;
+  color: rgba(238,242,255,.6);
+  line-height: 1.65;
+}
+.plus-card strong {
+  display: block;
+  color: var(--green);
+  font-size: .8rem;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* ══════════════════════════════════════
+   MAIN CONTENT
+══════════════════════════════════════ */
+.main {
+  background: var(--main-bg);
+  padding: 44px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Block header */
+.bh {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.bh-icon {
+  width: 30px; height: 30px;
+  background: rgba(61,114,255,.12);
+  border: 1px solid rgba(61,114,255,.22);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .85rem;
+  flex-shrink: 0;
+}
+.bh-title {
+  font-family: var(--mono);
+  font-size: .64rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--blue);
+  flex: 1;
+}
+.bh-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--border), transparent);
+}
+
+/* Timeline */
+.tl { display: flex; flex-direction: column; }
+.tl-row {
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  gap: 0 18px;
+  padding-bottom: 22px;
+  position: relative;
+}
+.tl-row:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 116px;
+  top: 10px; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, rgba(61,114,255,.3), transparent);
+  margin-left: 7px;
+}
+.tl-date {
+  font-family: var(--mono);
+  font-size: .62rem;
+  color: var(--text-muted);
+  text-align: right;
+  padding-top: 3px;
+  letter-spacing: .03em;
+  line-height: 1.5;
+}
+.tl-body {
+  padding-left: 18px;
+  position: relative;
+}
+.tl-body::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 7px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 12px rgba(61,114,255,.7);
+}
+.tl-title {
+  font-weight: 700;
+  font-size: .96rem;
+  color: var(--text-main);
+  margin-bottom: 2px;
+  line-height: 1.35;
+}
+.tl-where {
+  font-size: .79rem;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+.tl-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--mono);
+  font-size: .58rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  background: rgba(61,114,255,.1);
+  border: 1px solid rgba(61,114,255,.25);
+  color: var(--blue);
+  padding: 2px 9px;
+  border-radius: 4px;
+}
+.tl-tag.green {
+  background: rgba(46,232,160,.08);
+  border-color: rgba(46,232,160,.25);
+  color: var(--green);
+}
+.tl-tag::before { content: '●'; font-size: .4rem; }
+
+/* Experience card */
+.exp-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 0;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .25s;
+}
+.exp-card:hover { border-color: var(--border-b); }
+.exp-accent {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--blue), var(--green));
+}
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 3px;
+}
+.exp-title {
+  font-weight: 700;
+  font-size: .97rem;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+.exp-dtag {
+  font-family: var(--mono);
+  font-size: .59rem;
+  font-weight: 700;
+  white-space: nowrap;
+  background: rgba(46,232,160,.07);
+  border: 1px solid rgba(46,232,160,.22);
+  color: var(--green);
+  padding: 3px 10px;
+  border-radius: 5px;
+  flex-shrink: 0;
+  letter-spacing: .05em;
+}
+.exp-co {
+  font-size: .81rem;
+  color: var(--blue-l);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.exp-desc {
+  font-size: .82rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  font-weight: 300;
+  margin-bottom: 13px;
+}
+.exp-list {
+  list-style: none;
+  padding: 0;
+}
+.exp-list li {
+  font-size: .8rem;
+  color: var(--text-muted);
+  padding: 3px 0 3px 17px;
+  position: relative;
+  line-height: 1.6;
+  font-weight: 300;
+}
+.exp-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+  font-size: .7rem;
+  top: 4px;
+}
+
+/* Project cards */
+.proj-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.proj-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 20px;
+  transition: border-color .25s, transform .25s;
+  position: relative;
+  overflow: hidden;
+}
+.proj-card:hover {
+  border-color: var(--border-b);
+  transform: translateY(-2px);
+}
+.proj-glow {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--blue), transparent);
+  opacity: 0;
+  transition: opacity .3s;
+}
+.proj-card:hover .proj-glow { opacity: 1; }
+.proj-title {
+  font-weight: 700;
+  font-size: .92rem;
+  margin-bottom: 7px;
+  color: var(--text-main);
+}
+.proj-desc {
+  font-size: .79rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 13px;
+  font-weight: 300;
+}
+.proj-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.ptag {
+  font-family: var(--mono);
+  font-size: .59rem;
+  background: rgba(61,114,255,.08);
+  border: 1px solid rgba(61,114,255,.18);
+  color: var(--blue-l);
+  padding: 3px 9px;
+  border-radius: 4px;
+  letter-spacing: .03em;
+}
+
+/* Centre de formation handball — highlight */
+.handball-row {
+  background: rgba(46,232,160,.04);
+  border: 1px solid rgba(46,232,160,.15);
+  border-radius: 11px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 4px;
+}
+.handball-ico {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+.handball-text { flex: 1; }
+.handball-text strong {
+  display: block;
+  font-size: .88rem;
+  color: var(--green);
+  margin-bottom: 2px;
+}
+.handball-text span {
+  font-size: .78rem;
+  color: var(--text-muted);
+}
+
+/* ══════════════════════════════════════
+   PRINT
+══════════════════════════════════════ */
+@media print {
+  body {
+    background: white;
+    padding: 0;
+    display: block;
+  }
+  body::before { display: none; }
+  .topbar { display: none; }
+  .cv {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    max-width: 100%;
+    animation: none;
+  }
+  .sidebar {
+    background: #0a1232 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .main { background: #fff; }
+  .tl-row::after { display: none; }
+  .exp-card, .proj-card { background: #f8faff; border-color: #dde4ff; }
+  .exp-list li::before, .tl-body::before { color: #1a4fd4; }
+  .exp-co { color: #1a4fd4; }
+  .sb-label::after { display: none; }
+  .qual:hover, .proj-card:hover { transform: none; }
+}
+
+/* ══════════════════════════════════════
+   KEYFRAMES
+══════════════════════════════════════ */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50%      { opacity: .2; }
+}
+@keyframes spin {
+  from { transform: translate(-50%,-50%) rotate(0deg); }
+  to   { transform: translate(-50%,-50%) rotate(360deg); }
+}
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}
+@keyframes growBar {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 720px) {
+  .cv { grid-template-columns: 1fr; }
+  .main { padding: 30px 22px; }
+  .proj-row { grid-template-columns: 1fr; }
+  .tl-row { grid-template-columns: 1fr; }
+  .tl-date { text-align: left; margin-bottom: 4px; }
+  .tl-row::after { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="tb-left">
+    <span class="tb-dot"></span>
+    CV · Do Rego Williams
+  </div>
+  <div class="tb-right">
+    <a href="index.html" class="btn-back">← Portfolio</a>
+    <button class="btn-print" onclick="window.print()">⬇ Télécharger PDF</button>
+  </div>
+</div>
+
+<!-- CV -->
+<div class="cv">
+
+  <!-- ═══ SIDEBAR ═══ -->
+  <aside class="sidebar">
+    <div class="sb-stripe"></div>
+
+    <!-- Avatar -->
+    <div class="avatar-wrap">
+      <div class="avatar">DW</div>
+      <div class="avatar-ring"></div>
+      <div class="avatar-ring2"></div>
+    </div>
+
+    <!-- Identity -->
+    <div class="sb-name">DO REGO<br>WILLIAMS</div>
+    <div class="sb-role">Développeur Web · Étudiant</div>
+    <div class="sb-chips">
+      <span class="sb-chip">BTS SIO SLAM</span>
+      <span class="sb-chip alt">2024–2026</span>
+    </div>
+
+    <!-- Coordonnées -->
+    <div class="sb-section">
+      <div class="sb-label">Coordonnées</div>
+
+      <div class="ci">
+        <div class="ci-ico">📍</div>
+        <div class="ci-body">
+          <strong>1 rue Jean Monet</strong>
+          <span>28000 Chartres</span>
+        </div>
+      </div>
+
+      <div class="ci">
+        <div class="ci-ico">📞</div>
+        <div class="ci-body">
+          <strong>07 68 16 81 61</strong>
+        </div>
+      </div>
+
+      <div class="ci">
+        <div class="ci-ico">✉️</div>
+        <div class="ci-body">
+          <strong>williams.drg36</strong>
+          <span>@gmail.com</span>
+        </div>
+      </div>
+
+      <div class="ci">
+        <div class="ci-ico">🎂</div>
+        <div class="ci-body">
+          <strong>10 avril 2006</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compétences -->
+    <div class="sb-section">
+      <div class="sb-label">Compétences</div>
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-name">HTML5 / CSS3</span><span class="sk-pct">70%</span></div>
+        <div class="sk-track"><div class="sk-fill" style="width:70%; animation-delay:.1s"></div></div>
+      </div>
+      <div class="sk">
+        <div class="sk-top"><span class="sk-name">JavaScript</span><span class="sk-pct">42%</span></div>
+        <div class="sk-track"><div class="sk-fill" style="width:42%; animation-delay:.2s"></div></div>
+      </div>
+      <div class="sk">
+        <div class="sk-top"><span class="sk-name">PHP / MySQL</span><span class="sk-pct">30%</span></div>
+        <div class="sk-track"><div class="sk-fill" style="width:30%; animation-delay:.3s"></div></div>
+      </div>
+      <div class="sk">
+        <div class="sk-top"><span class="sk-name">Responsive Design</span><span class="sk-pct">65%</span></div>
+        <div class="sk-track"><div class="sk-fill" style="width:65%; animation-delay:.4s"></div></div>
+      </div>
+      <div class="sk">
+        <div class="sk-top"><span class="sk-name">Git / GitHub</span><span class="sk-pct">42%</span></div>
+        <div class="sk-track"><div class="sk-fill" style="width:42%; animation-delay:.5s"></div></div>
+      </div>
+      <div class="sk">
+        <div class="sk-top"><span class="sk-name">SQL (notions)</span><span class="sk-pct">28%</span></div>
+        <div class="sk-track"><div class="sk-fill" style="width:28%; animation-delay:.6s"></div></div>
+      </div>
+    </div>
+
+    <!-- Qualités -->
+    <div class="sb-section">
+      <div class="sb-label">Qualités</div>
+      <div class="qual-grid">
+        <span class="qual">Autonome</span>
+        <span class="qual">Adaptable</span>
+        <span class="qual">Esprit d'équipe</span>
+        <span class="qual">Motivé</span>
+        <span class="qual">Ponctuel</span>
+        <span class="qual">Rigoureux</span>
+      </div>
+    </div>
+
+    <!-- Le petit plus -->
+    <div class="sb-section">
+      <div class="sb-label">Le petit plus</div>
+      <div class="plus-card">
+        <strong>🤾 Sport de haut niveau</strong>
+        Équipe Nationale 1 de handball au C' Chartres Métropole — rigueur, dépassement de soi et esprit collectif.
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ═══ MAIN ═══ -->
+  <main class="main">
+
+    <!-- FORMATION -->
+    <div>
+      <div class="bh">
+        <div class="bh-icon">🎓</div>
+        <div class="bh-title">Formation</div>
+        <div class="bh-line"></div>
+      </div>
+
+      <div class="tl">
+
+        <div class="tl-row">
+          <div class="tl-date">2024<br>→ 2026</div>
+          <div class="tl-body">
+            <div class="tl-title">BTS Services Informatiques aux Organisations</div>
+            <div class="tl-where">Lycée Fulbert · Chartres · Option SLAM</div>
+            <span class="tl-tag green">En cours</span>
+          </div>
+        </div>
+
+        <div class="tl-row">
+          <div class="tl-date">2024<br>→ 2026</div>
+          <div class="tl-body">
+            <div class="tl-title">Centre de Formation Handball</div>
+            <div class="tl-where">C' Chartres Métropole · Nationale 1</div>
+            <span class="tl-tag green">En cours</span>
+          </div>
+        </div>
+
+        <div class="tl-row">
+          <div class="tl-date">2023<br>→ 2024</div>
+          <div class="tl-body">
+            <div class="tl-title">Baccalauréat Général</div>
+            <div class="tl-where">Lycée Marceau · Mathématiques, SVT · Attestation Pix · PSC1</div>
+          </div>
+        </div>
+
+        <div class="tl-row">
+          <div class="tl-date">2020<br>→ 2024</div>
+          <div class="tl-body">
+            <div class="tl-title">Pôle Espoir Handball</div>
+            <div class="tl-where">Ligue Centre Val de Loire · Chartres</div>
+          </div>
+        </div>
+
+        <div class="tl-row">
+          <div class="tl-date">2021</div>
+          <div class="tl-body">
+            <div class="tl-title">Diplôme National du Brevet</div>
+            <div class="tl-where">Collège Mathurin Régnier</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- EXPÉRIENCE -->
+    <div>
+      <div class="bh">
+        <div class="bh-icon">💼</div>
+        <div class="bh-title">Expérience professionnelle</div>
+        <div class="bh-line"></div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-accent"></div>
+        <div class="exp-header">
+          <div class="exp-title">Développeur Web — Stagiaire</div>
+          <div class="exp-dtag">Mai → Juin 2025</div>
+        </div>
+        <div class="exp-co">Sport Pro Performance Solidarity</div>
+        <div class="exp-desc">
+          Création complète d'un site web vitrine pour une structure sportive professionnelle dans le cadre d'un stage de 4 semaines.
+        </div>
+        <ul class="exp-list">
+          <li>Analyse des besoins du client et rédaction des spécifications</li>
+          <li>Intégration HTML / CSS responsive multi-support</li>
+          <li>Développement des interactions JavaScript et animations</li>
+          <li>Mise en ligne et tests de compatibilité navigateurs</li>
+          <li>Présentation du livrable final au client</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PROJETS -->
+    <div>
+      <div class="bh">
+        <div class="bh-icon">🗂️</div>
+        <div class="bh-title">Projets personnels</div>
+        <div class="bh-line"></div>
+      </div>
+
+      <div class="proj-row">
+        <div class="proj-card">
+          <div class="proj-glow"></div>
+          <div class="proj-title">Portfolio BTS SIO SLAM</div>
+          <div class="proj-desc">Site portfolio complet avec mode sombre/clair, canvas animé, animations au scroll, veille technologique et filtres de réalisations.</div>
+          <div class="proj-tags">
+            <span class="ptag">HTML</span>
+            <span class="ptag">CSS</span>
+            <span class="ptag">JavaScript</span>
+            <span class="ptag">Canvas</span>
+          </div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-glow"></div>
+          <div class="proj-title">Application de Suivi Sportif</div>
+          <div class="proj-desc">Application web pour gérer et visualiser des données d'entraînement : sessions, performances et statistiques personnelles.</div>
+          <div class="proj-tags">
+            <span class="ptag">HTML</span>
+            <span class="ptag">CSS</span>
+            <span class="ptag">JavaScript</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+</div>
+
+</body>
+</html>
