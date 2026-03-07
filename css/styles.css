@@ -477,3 +477,171 @@ html.light .real-card:hover{box-shadow:0 10px 30px rgba(0,0,0,0.1);}
   .comp-grid{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}
 }
+
+/* ══════════════════════════════════════
+   TABLETTE
+══════════════════════════════════════ */
+@media (max-width:1024px){
+
+nav{
+padding:0 32px;
+}
+
+section{
+padding:90px 32px;
+}
+
+/* Hero */
+
+.hero-title{
+font-size:clamp(2rem,6vw,4rem);
+}
+
+/* Layout */
+
+.about-grid{
+grid-template-columns:1fr;
+gap:48px;
+}
+
+.stage-grid{
+grid-template-columns:1fr;
+}
+
+.contact-grid{
+grid-template-columns:1fr;
+gap:36px;
+}
+
+/* Compétences */
+
+.comp-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+/* Réalisations */
+
+.real-grid{
+grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+}
+
+}
+
+/* ══════════════════════════════════════
+   MOBILE
+══════════════════════════════════════ */
+
+@media (max-width:768px){
+
+    
+nav{
+padding:0 20px;
+height:64px;
+}
+
+/* Menu */
+
+nav ul{
+display:none;
+}
+
+.nav-hamburger{
+display:flex;
+}
+
+/* Hero */
+
+#home{
+padding:100px 20px 70px;
+}
+
+.hero-title{
+font-size:2.3rem;
+}
+
+.hero-sub{
+font-size:.9rem;
+}
+
+/* Sections */
+
+section{
+padding:70px 20px;
+}
+
+/* Cards */
+
+.real-grid{
+grid-template-columns:1fr;
+}
+
+.comp-grid{
+grid-template-columns:1fr;
+}
+
+.stage-grid{
+grid-template-columns:1fr;
+}
+
+/* Contact */
+
+.contact-grid{
+grid-template-columns:1fr;
+}
+
+.form-row{
+grid-template-columns:1fr;
+}
+
+}
+
+/* ══════════════════════════════════════
+   PETIT MOBILE
+══════════════════════════════════════ */
+
+@media (max-width:480px){
+
+.hero-title{
+font-size:2rem;
+}
+
+.hero-chip{
+font-size:.7rem;
+}
+
+.hero-cta{
+flex-direction:column;
+}
+
+.btn-primary,
+.btn-outline{
+width:100%;
+justify-content:center;
+}
+
+/* Cards */
+
+.real-card{
+padding:16px;
+}
+
+.stage-card{
+padding:20px;
+}
+
+/* Footer */
+
+footer{
+padding:20px;
+flex-direction:column;
+gap:10px;
+}
+
+.footer-links{
+flex-wrap:wrap;
+justify-content:center;
+gap:12px;
+}
+
+}
+
