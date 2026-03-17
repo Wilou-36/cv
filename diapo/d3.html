@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Compétences</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="slide">
+
+  <h1>🛠️ Compétences</h1>
+  <p class="subtitle">Visualisation globale de mes compétences techniques</p>
+
+  <div class="skills-layout">
+
+    <!-- 🍩 Graphique -->
+    <div class="chart-box">
+      <canvas id="skillsChart"></canvas>
+      <div class="chart-text">Skills</div>
+    </div>
+
+    <!-- 📊 Barres -->
+    <div class="skills-container">
+
+      <div class="skill">
+        <div class="skill-label">
+          <span>HTML / CSS</span><span>60%</span>
+        </div>
+        <div class="bar"><div class="fill" data-width="60%"></div></div>
+      </div>
+
+      <div class="skill">
+        <div class="skill-label">
+          <span>JavaScript</span><span>32%</span>
+        </div>
+        <div class="bar"><div class="fill" data-width="32%"></div></div>
+      </div>
+
+      <div class="skill">
+        <div class="skill-label">
+          <span>PHP / MySQL</span><span>50%</span>
+        </div>
+        <div class="bar"><div class="fill" data-width="50%"></div></div>
+      </div>
+
+      <div class="skill">
+        <div class="skill-label">
+          <span>Python</span><span>30%</span>
+        </div>
+        <div class="bar"><div class="fill" data-width="30%"></div></div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="custom-legend">
+  <div><span class="dot html"></span>HTML/CSS</div>
+  <div><span class="dot js"></span>JavaScript</div>
+  <div><span class="dot php"></span>PHP</div>
+  <div><span class="dot sql"></span>SQL</div>
+  <div><span class="dot python"></span>Python</div>
+  <div><span class="dot git"></span>Git</div>
+</div>
+
+</div>
+
+<!-- navigation -->
+<div class="nav">
+  <a href="d1.html">⬅ Précédent</a>
+  <a href="d3.html">Suivant ➡</a>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- scripts -->
+<script src="js/nav.js"></script>
+<script src="js/skills.js"></script>
+
+</body>
+</html>

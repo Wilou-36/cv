@@ -72,6 +72,11 @@ nav{
   font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;
   color:var(--accent);letter-spacing:.04em;display:flex;align-items:center;gap:10px;
 }
+.nav-logo-icon{
+  height:32px;       /* adapte selon la hauteur de ta navbar */
+  width:auto;
+}
+
 .nav-logo-badge{
   background:var(--accent);color:#fff;font-size:.58rem;font-weight:700;
   padding:3px 8px;border-radius:4px;letter-spacing:.08em;font-family:'JetBrains Mono',monospace;
