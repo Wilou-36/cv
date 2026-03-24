@@ -3,8 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio — Do Rego Williams</title>
+<title>Portfolio — Do Rego Williams </title>
+<meta name="description" content="Portfolio de Do Rego Williams, étudiant développeur BTS SIO SLAM au lycée Fulbert de Chartres. Découvrez mes réalisations web, compétences et expériences de stage.">
+<meta name="author" content="Do Rego Williams">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Portfolio — Do Rego Williams | Développeur Web">
+<meta property="og:description" content="Étudiant développeur BTS SIO SLAM à Chartres. Réalisations web, compétences HTML/CSS/JS/PHP et expériences de stage.">
+<meta property="og:image" content="img/avatar.png">
+<meta property="og:url" content="https://wilou-36.github.io/cv/">
+<meta property="og:locale" content="fr_FR">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Portfolio — Do Rego Williams">
+<meta name="twitter:description" content="Étudiant développeur BTS SIO SLAM à Chartres.">
+<meta name="twitter:image" content="img/avatar.png">
+
 <link rel="icon" href="img/lg.png" type="image/x-icon">
+<link rel="canonical" href="https://wilou-36.github.io/cv/">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -14,7 +33,7 @@
 <!-- ══════ NAVBAR ══════ -->
 <nav>
   <a href="#home" class="nav-logo">
-    <img class="nav-logo-icon" src="img/lg.png" alt="Logo">
+    <img class="nav-logo-icon" src="img/lg.png" alt="Logo Do Rego Williams">
     <span class="nav-logo-badge">PORTFOLIO</span>
   </a>
   <div class="nav-right">
@@ -26,13 +45,13 @@
       <li><a href="#stage">Stage</a></li>
       <li><a href="#formation">Formation</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="cv.html">Mon CV</a></li> 
+      <li><a href="cv.html">Mon CV</a></li>
       <li><a href="diapo/diapo.html">Diaporama</a></li>
     </ul>
-    <button class="theme-toggle" id="themeToggle" aria-label="Basculer thème">
+    <button class="theme-toggle" id="themeToggle" aria-label="Basculer le thème clair/sombre">
       <div class="toggle-thumb" id="toggleThumb">🌙</div>
     </button>
-    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <button class="nav-hamburger" id="hamburger" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -109,7 +128,7 @@
       <div class="about-right reveal">
         <div class="info-card">
           <h4>🧑‍💻 Informations générales</h4>
-          <div class="info-row"><span>Formation</span><span>BTS SIO - SLAM <br> OpenClassrooms</span></div>
+          <div class="info-row"><span>Formation</span><span>BTS SIO - SLAM<br>OpenClassrooms</span></div>
           <div class="info-row"><span>Établissement</span><span>Lycée Fulbert, Chartres</span></div>
           <div class="info-row"><span>Promotion</span><span>2024 – 2026</span></div>
           <div class="info-row"><span>Année en cours</span><span>2ème année</span></div>
@@ -118,7 +137,7 @@
         </div>
         <div class="info-card">
           <h4>📬 Contact</h4>
-          <div class="info-row"><span>Email</span><span>williamsdrg.dev@gmail.com</span></div>
+          <div class="info-row"><span>Email</span><span><a href="mailto:williamsdrg.dev@gmail.com">williamsdrg.dev@gmail.com</a></span></div>
           <div class="info-row"><span>Localisation</span><span>Chartres (28)</span></div>
         </div>
       </div>
@@ -173,7 +192,7 @@
       </div>
 
       <div class="comp-cat reveal">
-        <div class="comp-cat-title">🔧 Outils & Méthodes</div>
+        <div class="comp-cat-title">🔧 Outils &amp; Méthodes</div>
         <div class="skill-item">
           <div class="skill-header"><span>Git / GitHub</span><span>Débutant+</span></div>
           <div class="skill-bar"><div class="skill-fill" style="width:58%"></div></div>
@@ -217,7 +236,7 @@
       </div>
 
       <div class="comp-cat reveal">
-        <div class="comp-cat-title">🔒 Réseau & Sécurité</div>
+        <div class="comp-cat-title">🔒 Réseau &amp; Sécurité</div>
         <div class="skill-item">
           <div class="skill-header"><span>Réseau TCP/IP</span><span>Notions</span></div>
           <div class="skill-bar"><div class="skill-fill" style="width:20%"></div></div>
@@ -267,8 +286,7 @@
             <span class="real-tag">Responsive</span>
           </div>
           <div class="real-card-links">
-            <a href="#" class="real-link">🔗 Voir le site</a>
-            <a href="#" class="real-link">📄 Documentation</a>
+            <a href="https://github.com/Wilou-36" class="real-link" target="_blank" rel="noopener">📁 GitHub</a>
           </div>
         </div>
         <div class="real-card-skills"><strong>Compétences BTS :</strong>&nbsp;B1.3 · B1.4 · B2.1</div>
@@ -280,16 +298,13 @@
           <span class="real-card-year">2024–2025</span>
         </div>
         <div class="real-card-body">
-          <div class="real-card-title">TP — Inscription au bts du lycée Fulbert</div>
-          <div class="real-card-desc">Page web dynamique avec formulaire, inscription en bts avec charte graphiquedu gouvernement. Réalisé en cours de développement web.</div>
+          <div class="real-card-title">TP — Inscription au BTS du lycée Fulbert</div>
+          <div class="real-card-desc">Page web dynamique avec formulaire d'inscription au BTS respectant la charte graphique du gouvernement. Réalisé en cours de développement web.</div>
           <div class="real-card-tags">
             <span class="real-tag">PHP</span>
             <span class="real-tag">MySQL</span>
             <span class="real-tag">HTML</span>
             <span class="real-tag">CSS</span>
-          </div>
-          <div class="real-card-links">
-            <a href="#" class="real-link">📄 Rapport TP</a>
           </div>
         </div>
         <div class="real-card-skills"><strong>Compétences BTS :</strong>&nbsp;B1.3 · B2.2 · B2.3</div>
@@ -310,12 +325,13 @@
             <span class="real-tag">LocalStorage</span>
           </div>
           <div class="real-card-links">
-            <a href="#" class="real-link">🔗 Voir le site</a>
-            <a href="https://github.com/Wilou-36/cv" class="real-link">📁 GitHub</a>
+            <a href="https://wilou-36.github.io/cv/" class="real-link" target="_blank" rel="noopener">🔗 Voir le site</a>
+            <a href="https://github.com/Wilou-36/cv" class="real-link" target="_blank" rel="noopener">📁 GitHub</a>
           </div>
         </div>
         <div class="real-card-skills"><strong>Compétences BTS :</strong>&nbsp;B1.3 · B2.1 · B2.2</div>
       </div>
+
       <div class="real-card reveal" data-type="scolaire">
         <div class="real-card-header">
           <span class="real-card-type type-scolaire">Scolaire</span>
@@ -323,7 +339,7 @@
         </div>
         <div class="real-card-body">
           <div class="real-card-title">Cluedo</div>
-          <div class="real-card-desc">Jeu de déduction avec utilisation d'une base de donnée</div>
+          <div class="real-card-desc">Jeu de déduction avec utilisation d'une base de données.</div>
           <div class="real-card-tags">
             <span class="real-tag">PHP</span>
             <span class="real-tag">MySQL</span>
@@ -331,12 +347,12 @@
             <span class="real-tag">CSS</span>
           </div>
           <div class="real-card-links">
-            <a href="#" class="real-link">📄 Rapport TP</a>
-            <a href="https://github.com/Wilou-36/Cluedo" class="real-link">📁 GitHub</a>
+            <a href="https://github.com/Wilou-36/Cluedo" class="real-link" target="_blank" rel="noopener">📁 GitHub</a>
           </div>
         </div>
         <div class="real-card-skills"><strong>Compétences BTS :</strong>&nbsp;B1.3 · B2.2 · B2.3</div>
       </div>
+
       <div class="real-card reveal" data-type="stage">
         <div class="real-card-header">
           <span class="real-card-type type-stage">Stage</span>
@@ -352,8 +368,7 @@
             <span class="real-tag">MySQL</span>
           </div>
           <div class="real-card-links">
-            <a href="#" class="real-link">🔗 Voir le site</a>
-            <a href="#" class="real-link">📄 Documentation</a>
+            <a href="https://github.com/Wilou-36" class="real-link" target="_blank" rel="noopener">📁 GitHub</a>
           </div>
         </div>
         <div class="real-card-skills"><strong>Compétences BTS :</strong>&nbsp;B1.3 · B1.4 · B2.1</div>
@@ -366,7 +381,7 @@
         </div>
         <div class="real-card-body">
           <div class="real-card-title">TP — Application Bancaire avec option Crypto</div>
-          <div class="real-card-desc">application web de gestion bancaire avec intégration d'une option de trading de cryptomonnaies prennant le cours actuel des cryptomonnaies</div>
+          <div class="real-card-desc">Application web de gestion bancaire avec intégration d'une option de trading de cryptomonnaies prenant le cours actuel des cryptomonnaies.</div>
           <div class="real-card-tags">
             <span class="real-tag">PHP</span>
             <span class="real-tag">MySQL</span>
@@ -374,8 +389,7 @@
             <span class="real-tag">CSS</span>
           </div>
           <div class="real-card-links">
-            <a href="#" class="real-link">📄 Rapport TP</a>
-            <a href="https://github.com/Wilou-36/Fulb" class="real-link">📁 GitHub</a>
+            <a href="https://github.com/Wilou-36/Fulb" class="real-link" target="_blank" rel="noopener">📁 GitHub</a>
           </div>
         </div>
         <div class="real-card-skills"><strong>Compétences BTS :</strong>&nbsp;B1.3 · B2.2 · B2.3</div>
@@ -393,11 +407,11 @@
             <span class="real-tag">HTML</span>
             <span class="real-tag">CSS</span>
             <span class="real-tag">Print CSS</span>
-            <span class="real-tag">Javascript</span>
+            <span class="real-tag">JavaScript</span>
           </div>
           <div class="real-card-links">
             <a href="cv.html" class="real-link">🔗 Voir le CV</a>
-            <a href="https://github.com/Wilou-36/cv" class="real-link">📁 GitHub</a>
+            <a href="https://github.com/Wilou-36/cv" class="real-link" target="_blank" rel="noopener">📁 GitHub</a>
           </div>
         </div>
         <div class="real-card-skills"><strong>Compétences BTS :</strong>&nbsp;B1.3 · B2.1</div>
@@ -415,9 +429,6 @@
             <span class="real-tag">MCD/MLD</span>
             <span class="real-tag">SQL</span>
             <span class="real-tag">MySQL</span>
-          </div>
-          <div class="real-card-links">
-            <a href="#" class="real-link">📄 Dossier</a>
           </div>
         </div>
         <div class="real-card-skills"><strong>Compétences BTS :</strong>&nbsp;B2.2 · B2.3</div>
@@ -450,25 +461,25 @@
         </ul>
       </div>
       <div class="stage-card">
-        <h3>Développement web & application sportive</h3>
+        <h3>Développement web &amp; application sportive</h3>
         <div class="stage-company">Sport Pro Performance Solidarity</div>
         <div class="stage-date">5 Janvier → 28 Février 2025 · 8 semaines</div>
         <p>
-        Mission principale : conception et développement d'une application web interne
-        destinée au suivi des performances sportives, ainsi que la mise à jour
-        et l'amélioration du site web de la structure sportive.
+          Mission principale : conception et développement d'une application web interne
+          destinée au suivi des performances sportives, ainsi que la mise à jour
+          et l'amélioration du site web de la structure sportive.
         </p>
         <ul class="stage-missions">
-          <li>Analyse des besoins de la structure sportive et définition des fonctionnalités de l'application</li>
-          <li>Conception de l'interface utilisateur pour le suivi des entraînements et performances</li>
-          <li>Développement d'une application web permettant la gestion des séances et statistiques sportives</li>
+          <li>Analyse des besoins et définition des fonctionnalités de l'application</li>
+          <li>Conception de l'interface utilisateur pour le suivi des entraînements</li>
+          <li>Développement de l'application web de gestion des séances et statistiques sportives</li>
           <li>Mise à jour du site web existant (contenu, structure et optimisation responsive)</li>
-          <li>Intégration HTML5 / CSS3 pour la mise en page et l'ergonomie des pages</li>
+          <li>Intégration HTML5 / CSS3 pour la mise en page et l'ergonomie</li>
           <li>Développement d'interactions dynamiques en JavaScript</li>
           <li>Tests fonctionnels et corrections de bugs</li>
-          <li>Utilisation de Git pour la gestion de versions du projet</li>
+          <li>Utilisation de Git pour la gestion de versions</li>
           <li>Création de maquettes et amélioration de l'expérience utilisateur (UX)</li>
-          <li>Documentation du projet et présentation des fonctionnalités développées</li>
+          <li>Documentation du projet et présentation des fonctionnalités</li>
         </ul>
       </div>
     </div>
@@ -535,21 +546,21 @@
     </div>
     <div class="contact-grid">
       <div class="contact-info reveal">
-        <p>Étudiant en BTS SIO SLAM, je suis ouvert aux opportunités de stage, aux projets collaboratifs et à tout échange autour du développement web et logiciel.</p>
+        <p>Étudiant en BTS SIO SLAM, je suis ouvert aux opportunités de stage et aux projets collaboratifs autour du développement web et logiciel.</p>
         <div class="contact-item">
           <span class="contact-item-icon">📍</span>
-          <div><strong>1 rue Jean Monet</strong><br><span>28000 Chartres</span></div>
+          <div><strong>28000 Chartres</strong></div>
         </div>
         <div class="contact-item">
           <span class="contact-item-icon">✉️</span>
-          <div><strong>williamsdrg.dev@gmail.com</strong><br><span>Réponse sous 48h</span></div>
+          <div><strong><a href="mailto:williamsdrg.dev@gmail.com">williamsdrg.dev@gmail.com</a></strong><br><span>Réponse sous 48h</span></div>
         </div>
         <div class="contact-item">
           <span class="contact-item-icon">🎓</span>
           <div><strong>Lycée Fulbert, Chartres</strong><br><span>BTS SIO SLAM · 2024–2026</span></div>
         </div>
       </div>
-      <form class="contact-form reveal" onsubmit="handleSubmit(event)">
+      <form class="contact-form reveal" action="https://formspree.io/f/REMPLACER_PAR_TON_ID" method="POST">
         <div class="form-row">
           <div class="form-group">
             <label for="nom">Nom</label>
@@ -586,6 +597,7 @@
     <a href="#realisations">Réalisations</a>
     <a href="#stage">Stage</a>
     <a href="cv.html">CV</a>
+    <a href="https://github.com/Wilou-36" target="_blank" rel="noopener">GitHub</a>
   </div>
 </footer>
 

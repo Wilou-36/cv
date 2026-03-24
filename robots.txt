@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://wilou-36.github.io/cv/sitemap.xml
