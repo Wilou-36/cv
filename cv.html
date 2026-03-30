@@ -4,280 +4,427 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CV — Do Rego Williams</title>
-<link rel="icon" href="img/lg.png" type="image/x-icon">
-<link rel="stylesheet" href="css/cv.css">
-<!--<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
--->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;900&family=Fraunces:opsz,wght@9..144,300;9..144,700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════ TOKENS ═══════════════ */
+:root {
+  --bg:      #07090f;
+  --bg2:     #0d1020;
+  --card:    #141927;
+  --accent:  #5b8fff;
+  --accent-g:#7ef0c0;
+  --text:    #e8eeff;
+  --muted:   #637098;
+  --muted2:  #8898c0;
+  --border:  rgba(91,143,255,0.13);
+  --mono:    'DM Mono', monospace;
+  --sans:    'Outfit', sans-serif;
+  --serif:   'Fraunces', serif;
+}
+
+/* ═══════════════ PRINT ═══════════════ */
+@media print {
+  :root {
+    --bg: #fff; --bg2: #f4f7ff; --card: #fff;
+    --text: #080d20; --muted: #4060a0; --muted2: #5070b0;
+    --accent: #1a4cc0; --accent-g: #1a7050;
+    --border: rgba(30,80,200,.15);
+  }
+  body { font-size:11pt; }
+  .no-print { display:none !important; }
+  .cv-page { box-shadow:none; margin:0; border-radius:0; }
+  section { padding:16pt 0; }
+  a { color:var(--accent); }
+  @page { margin:16mm 18mm; }
+}
+
+/* ═══════════════ BASE ═══════════════ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:var(--sans);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.62;
+}
+a { text-decoration:none; color:inherit; }
+
+/* ═══════════════ NAV ═══════════════ */
+.topbar {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  height:56px; padding:0 40px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:rgba(7,9,15,.9); backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+}
+.topbar-brand { font-family:var(--serif); font-size:.95rem; font-weight:700; color:var(--text); }
+.topbar-right { display:flex; align-items:center; gap:12px; }
+.back-link {
+  font-size:.73rem; color:var(--muted2); border:1px solid var(--border);
+  padding:6px 14px; border-radius:7px; transition:border-color .2s, color .2s;
+  font-family:var(--mono);
+}
+.back-link:hover { border-color:var(--accent); color:var(--accent); }
+.print-btn {
+  background:var(--accent); color:#fff;
+  font-size:.73rem; padding:6px 16px; border-radius:7px;
+  border:none; cursor:pointer; font-family:var(--mono); transition:opacity .2s;
+}
+.print-btn:hover { opacity:.85; }
+
+/* ═══════════════ WRAPPER ═══════════════ */
+.cv-wrapper {
+  max-width:900px; margin:80px auto 60px;
+  padding:0 20px;
+}
+.cv-page {
+  background:var(--bg2); border:1px solid var(--border);
+  border-radius:18px; overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,.45);
+}
+
+/* ═══════════════ HEADER ═══════════════ */
+.cv-header {
+  background:var(--card); border-bottom:1px solid var(--border);
+  padding:42px 48px;
+  display:grid; grid-template-columns:1fr auto;
+  gap:24px; align-items:start;
+}
+.cv-name {
+  font-family:var(--serif); font-size:2.6rem; font-weight:700;
+  line-height:1.1; letter-spacing:-.01em; margin-bottom:6px;
+}
+.cv-name em { color:var(--accent); font-style:italic; }
+.cv-title {
+  font-size:.95rem; color:var(--muted2); margin-bottom:16px;
+  font-weight:400; letter-spacing:.02em;
+}
+.cv-tags { display:flex; flex-wrap:wrap; gap:6px; }
+.cv-tag {
+  font-family:var(--mono); font-size:.62rem;
+  background:rgba(91,143,255,.09); border:1px solid var(--border);
+  color:var(--accent); padding:3px 11px; border-radius:5px;
+}
+
+.cv-contact-block { text-align:right; }
+.cv-contact-block a,
+.cv-contact-block p {
+  display:flex; align-items:center; gap:6px; justify-content:flex-end;
+  font-size:.8rem; color:var(--muted2); margin-bottom:7px; transition:color .2s;
+}
+.cv-contact-block a:hover { color:var(--accent); }
+.cv-contact-block .ico { font-size:.95rem; }
+
+/* ═══════════════ BODY LAYOUT ═══════════════ */
+.cv-body {
+  display:grid; grid-template-columns:1fr 280px;
+}
+.cv-main { padding:36px 40px 40px; border-right:1px solid var(--border); }
+.cv-side { padding:36px 28px 40px; }
+
+/* ═══════════════ SECTION ═══════════════ */
+.cv-section { margin-bottom:36px; }
+.cv-section:last-child { margin-bottom:0; }
+.sec-head {
+  display:flex; align-items:center; gap:8px; margin-bottom:18px;
+}
+.sec-head h2 {
+  font-family:var(--mono); font-size:.65rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--accent);
+}
+.sec-line { flex:1; height:1px; background:var(--border); }
+
+/* ═══════════════ ITEMS ═══════════════ */
+.cv-item { margin-bottom:22px; }
+.cv-item:last-child { margin-bottom:0; }
+.item-head { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; margin-bottom:3px; }
+.item-title { font-family:var(--serif); font-size:1rem; font-weight:700; line-height:1.2; }
+.item-date {
+  font-family:var(--mono); font-size:.65rem; color:var(--accent-g);
+  background:rgba(126,240,192,.08); border:1px solid rgba(126,240,192,.2);
+  padding:2px 9px; border-radius:4px; white-space:nowrap; flex-shrink:0;
+}
+.item-sub { font-size:.82rem; color:var(--accent); font-weight:500; margin-bottom:6px; }
+.item-desc { font-size:.82rem; color:var(--muted2); line-height:1.75; }
+.item-list { list-style:none; margin-top:6px; }
+.item-list li {
+  font-size:.8rem; color:var(--muted2); line-height:1.6;
+  padding:3px 0 3px 15px; position:relative;
+}
+.item-list li::before { content:'▹'; position:absolute; left:0; color:var(--accent); }
+
+.item-badge {
+  display:inline-block; font-family:var(--mono); font-size:.6rem;
+  background:rgba(91,143,255,.1); border:1px solid var(--border);
+  color:var(--accent); padding:2px 9px; border-radius:4px; margin-top:4px;
+}
+
+/* ═══════════════ SIDEBAR SKILLS ═══════════════ */
+.sk { margin-bottom:10px; }
+.sk-name { font-size:.8rem; margin-bottom:3px; display:flex; justify-content:space-between; }
+.sk-level { font-size:.67rem; color:var(--muted); }
+.sk-bar { height:3px; background:rgba(255,255,255,.06); border-radius:100px; overflow:hidden; }
+.sk-fill {
+  height:100%; border-radius:100px;
+  background:linear-gradient(90deg, var(--accent-g), var(--accent));
+}
+
+/* ═══════════════ TAGS GRID ═══════════════ */
+.tag-cloud { display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; }
+.stag {
+  font-family:var(--mono); font-size:.62rem;
+  background:var(--card); border:1px solid var(--border);
+  color:var(--muted2); padding:3px 9px; border-radius:5px;
+}
+
+/* ═══════════════ CONTACT ITEM ═══════════════ */
+.sinfo { font-size:.8rem; color:var(--muted2); margin-bottom:8px; display:flex; align-items:flex-start; gap:7px; }
+.sinfo .ico { flex-shrink:0; font-size:.9rem; margin-top:1px; }
+
+/* ═══════════════ RESPONSIVE ═══════════════ */
+@media(max-width:700px) {
+  .cv-header { grid-template-columns:1fr; }
+  .cv-contact-block { text-align:left; }
+  .cv-contact-block a, .cv-contact-block p { justify-content:flex-start; }
+  .cv-body { grid-template-columns:1fr; }
+  .cv-main { border-right:none; border-bottom:1px solid var(--border); padding:28px 22px; }
+  .cv-side { padding:28px 22px; }
+  .cv-header { padding:28px 22px; }
+  .cv-name { font-size:2rem; }
+  .topbar { padding:0 18px; }
+}
+</style>
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div class="topbar">
-  <div class="tb-left">
-    <span class="tb-dot"></span>
-    CV · Do Rego Williams
-  </div>
-  <div class="tb-right">
-    <a href="index.html" class="btn-back">← Portfolio</a>
-    <button class="btn-print" onclick="window.print()">⬇ Télécharger PDF</button>
+<!-- TOPBAR -->
+<div class="topbar no-print">
+  <span class="topbar-brand">Do Rego Williams — CV</span>
+  <div class="topbar-right">
+    <a href="index.html" class="back-link">← Portfolio</a>
+    <button class="print-btn" onclick="window.print()">⬇ Télécharger PDF</button>
   </div>
 </div>
 
-<!-- CV -->
-<div class="cv">
+<div class="cv-wrapper">
+<div class="cv-page">
 
-  <!-- ═══ SIDEBAR ═══ -->
-  <aside class="sidebar">
-    <div class="sb-stripe"></div>
-
-    <!-- Avatar -->
-    <div class="avatar-wrap">
-      <div class="avatar">
-        <img src="img/avatar.png" alt="Photo de Do Rego Williams" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">
-      </div>
-      <div class="avatar-ring"></div>
-      <div class="avatar-ring2"></div>
-    </div>
-
-    <!-- Identity -->
-    <div class="sb-name">DO REGO<br>WILLIAMS</div>
-    <div class="sb-role">Développeur Web · Étudiant</div>
-    <div class="sb-chips">
-      <span class="sb-chip">BTS SIO SLAM</span>
-      <span class="sb-chip alt">2024–2026</span>
-    </div>
-
-    <!-- Coordonnées -->
-    <div class="sb-section">
-      <div class="sb-label">Coordonnées</div>
-
-      <div class="ci">
-        <div class="ci-ico">📍</div>
-        <div class="ci-body">
-          <strong>1 rue Jean Monet</strong>
-          <span>28000 Chartres</span>
-        </div>
-      </div>
-
-      <div class="ci">
-        <div class="ci-ico">✉️</div>
-        <div class="ci-body">
-          <strong>williamsdrg.dev</strong>
-          <span>@gmail.com</span>
-        </div>
-      </div>
-
-      <div class="ci">
-        <div class="ci-ico">🎂</div>
-        <div class="ci-body">
-          <strong>10 avril 2006</strong>
-        </div>
-      </div>
-    </div>
-
-    <!-- Compétences -->
-    <div class="sb-section">
-      <div class="sb-label">Compétences</div>
-
-      <div class="sk">
-        <div class="sk-top"><span class="sk-name">HTML5 / CSS3</span><span class="sk-pct">70%</span></div>
-        <div class="sk-track"><div class="sk-fill" style="width:70%; animation-delay:.1s"></div></div>
-      </div>
-      <div class="sk">
-        <div class="sk-top"><span class="sk-name">JavaScript</span><span class="sk-pct">42%</span></div>
-        <div class="sk-track"><div class="sk-fill" style="width:42%; animation-delay:.2s"></div></div>
-      </div>
-      <div class="sk">
-        <div class="sk-top"><span class="sk-name">PHP / MySQL</span><span class="sk-pct">30%</span></div>
-        <div class="sk-track"><div class="sk-fill" style="width:30%; animation-delay:.3s"></div></div>
-      </div>
-      <div class="sk">
-        <div class="sk-top"><span class="sk-name">Responsive Design</span><span class="sk-pct">65%</span></div>
-        <div class="sk-track"><div class="sk-fill" style="width:65%; animation-delay:.4s"></div></div>
-      </div>
-      <div class="sk">
-        <div class="sk-top"><span class="sk-name">Git / GitHub</span><span class="sk-pct">42%</span></div>
-        <div class="sk-track"><div class="sk-fill" style="width:42%; animation-delay:.5s"></div></div>
-      </div>
-      <div class="sk">
-        <div class="sk-top"><span class="sk-name">SQL (notions)</span><span class="sk-pct">28%</span></div>
-        <div class="sk-track"><div class="sk-fill" style="width:28%; animation-delay:.6s"></div></div>
-      </div>
-    </div>
-
-    <!-- Qualités -->
-    <div class="sb-section">
-      <div class="sb-label">Qualités</div>
-      <div class="qual-grid">
-        <span class="qual">Autonome</span>
-        <span class="qual">Adaptable</span>
-        <span class="qual">Esprit d'équipe</span>
-        <span class="qual">Motivé</span>
-        <span class="qual">Ponctuel</span>
-        <span class="qual">Rigoureux</span>
-      </div>
-    </div>
-
-    <!-- Le petit plus -->
-    <div class="sb-section">
-      <div class="sb-label">Le petit plus</div>
-      <div class="plus-card">
-        <strong>🤾 Sport de haut niveau</strong>
-        Équipe Nationale 1 de handball au C' Chartres Métropole — rigueur, dépassement de soi et esprit collectif.
-      </div>
-    </div>
-
-  </aside>
-
-  <!-- ═══ MAIN ═══ -->
-  <main class="main">
-
-    <!-- FORMATION -->
-    <div>
-      <div class="bh">
-        <div class="bh-icon">🎓</div>
-        <div class="bh-title">Formation</div>
-        <div class="bh-line"></div>
-      </div>
-
-      <div class="tl">
-
-        <div class="tl-row">
-          <div class="tl-date">2024<br>→ 2026</div>
-          <div class="tl-body">
-            <div class="tl-title">BTS Services Informatiques aux Organisations</div>
-            <div class="tl-where">Lycée Fulbert · Chartres · Option SLAM</div>
-            <span class="tl-tag green">En cours</span>
-          </div>
-        </div>
-
-        <div class="tl-row">
-          <div class="tl-date">2024<br>→ 2026</div>
-          <div class="tl-body">
-            <div class="tl-title">Centre de Formation Handball</div>
-            <div class="tl-where">C' Chartres Métropole · Nationale 1</div>
-            <span class="tl-tag green">En cours</span>
-          </div>
-        </div>
-
-        <div class="tl-row">
-          <div class="tl-date">2023<br>→ 2024</div>
-          <div class="tl-body">
-            <div class="tl-title">Baccalauréat Général</div>
-            <div class="tl-where">Lycée Marceau · Mathématiques, SVT · Attestation Pix · PSC1</div>
-          </div>
-        </div>
-
-        <div class="tl-row">
-          <div class="tl-date">2020<br>→ 2024</div>
-          <div class="tl-body">
-            <div class="tl-title">Pôle Espoir Handball</div>
-            <div class="tl-where">Ligue Centre Val de Loire · Chartres</div>
-          </div>
-        </div>
-
-        <div class="tl-row">
-          <div class="tl-date">2021</div>
-          <div class="tl-body">
-            <div class="tl-title">Diplôme National du Brevet</div>
-            <div class="tl-where">Collège Mathurin Régnier</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- EXPÉRIENCE -->
-    <div>
-      <div class="bh">
-        <div class="bh-icon">💼</div>
-        <div class="bh-title">Expérience professionnelle</div>
-        <div class="bh-line"></div>
-      </div>
-
-      <div class="exp-card">
-        <div class="exp-accent"></div>
-        <div class="exp-header">
-          <div class="exp-title">Développeur Web — Stagiaire</div>
-          <div class="exp-dtag">Mai → Juin 2025</div>
-        </div>
-        <div class="exp-co">Sport Pro Performance Solidarity</div>
-        <div class="exp-desc">
-          Création complète d'un site web vitrine pour une structure sportive professionnelle dans le cadre d'un stage de 4 semaines.
-        </div>
-        <ul class="exp-list">
-          <li>Analyse des besoins du client et rédaction des spécifications</li>
-          <li>Intégration HTML / CSS responsive multi-support</li>
-          <li>Développement des interactions JavaScript et animations</li>
-          <li>Mise en ligne et tests de compatibilité navigateurs</li>
-          <li>Présentation du livrable final au client</li>
-        </ul>
-      </div>
-      <br>
-      <div class="exp-card">
-        <div class="exp-accent"></div>
-        <div class="exp-header">
-          <div class="exp-title">Développeur Web — Stagiaire</div>
-          <div class="exp-dtag">5 Jan → 27 Fev 2025</div>
-        </div>
-        <div class="exp-co">Sport Pro Performance Solidarity</div>
-        <div class="exp-desc">
-          Conception et développement d'une application web interne destinée au suivi des performances sportives, ainsi que la mise à jour et l'amélioration du site web de la structure sportive.
-        </div>
-        <ul class="exp-list">
-          <li>Analyse des besoins de la structure sportive et définition des fonctionnalités de l'application</li>
-          <li>Conception de l'interface utilisateur pour le suivi des entraînements et performances</li>
-          <li>Développement d'une application web permettant la gestion des séances et statistiques sportives</li>
-          <li>Mise à jour du site web existant (contenu, structure et optimisation responsive)</li>
-          <li>Intégration HTML5 / CSS3 pour la mise en page et l'ergonomie des pages</li>
-          <li>Développement d'interactions dynamiques en JavaScript</li>
-          <li>Tests fonctionnels et corrections de bugs</li>
-          <li>Utilisation de Git pour la gestion de versions du projet</li>
-          <li>Création de maquettes et amélioration de l'expérience utilisateur (UX)</li>
-          <li>Documentation du projet et présentation des fonctionnalités développées</li>
-        </ul>
-      </div>
-    </div>
-
+  <!-- HEADER -->
+  <div class="cv-header">
     
-
-    <!-- PROJETS -->
     <div>
-      <div class="bh">
-        <div class="bh-icon">🗂️</div>
-        <div class="bh-title">Projets personnels</div>
-        <div class="bh-line"></div>
-      </div>
-
-      <div class="proj-row">
-        <div class="proj-card">
-          <div class="proj-glow"></div>
-          <div class="proj-title">Portfolio BTS SIO SLAM</div>
-          <div class="proj-desc">Site portfolio complet avec mode sombre/clair, canvas animé, animations au scroll, veille technologique et filtres de réalisations.</div>
-          <div class="proj-tags">
-            <span class="ptag">HTML</span>
-            <span class="ptag">CSS</span>
-            <span class="ptag">JavaScript</span>
-            <span class="ptag">Canvas</span>
-          </div>
-        </div>
-
-        <div class="proj-card">
-          <div class="proj-glow"></div>
-          <div class="proj-title">Application de Suivi Sportif</div>
-          <div class="proj-desc">Application web pour gérer et visualiser des données d'entraînement : sessions, performances et statistiques personnelles.</div>
-          <div class="proj-tags">
-            <span class="ptag">HTML</span>
-            <span class="ptag">CSS</span>
-            <span class="ptag">JavaScript</span>
-          </div>
-        </div>
+      <h1 class="cv-name">Do Rego <em>Williams</em></h1>
+      <div class="cv-title">Étudiant Développeur · BTS SIO option SLAM</div>
+      <div class="cv-tags">
+        <span class="cv-tag">HTML/CSS</span>
+        <span class="cv-tag">JavaScript</span>
+        <span class="cv-tag">PHP</span>
+        <span class="cv-tag">MySQL</span>
+        <span class="cv-tag">Python</span>
+        <span class="cv-tag">Git</span>
+        <span class="cv-tag">UML</span>
       </div>
     </div>
+    <div >
+      <img src="img/avatar.png" alt="avatar" style="width:140px; height:140px; border-radius:100%; object-fit:cover; border:2px solid var(--border);">
+    </div>
+  </div>
 
-  </main>
+  <div class="cv-body">
 
-</div>
-<script src="js/script.js"></script>
+    <!-- MAIN -->
+    <div class="cv-main">
+
+      <!-- FORMATION -->
+      <div class="cv-section">
+        <div class="sec-head"><h2>Formation</h2><div class="sec-line"></div></div>
+
+        <div class="cv-item">
+          <div class="item-head">
+            <div class="item-title">BTS Services Informatiques aux Organisations — SLAM</div>
+            <span class="item-date">2024 – 2026</span>
+          </div>
+          <div class="item-sub">Lycée Fulbert · Chartres</div>
+          <div class="item-desc">Formation aux Solutions Logicielles et Applications Métiers : développement web, BDD, génie logiciel, réseaux, sécurité.</div>
+          <span class="item-badge">En cours</span>
+        </div>
+
+        <div class="cv-item">
+          <div class="item-head">
+            <div class="item-title">Baccalauréat Général</div>
+            <span class="item-date">2023 – 2024</span>
+          </div>
+          <div class="item-sub">Lycée Marceau · Chartres</div>
+          <div class="item-desc">Spécialités Mathématiques & SVT · Attestation Pix · PSC1</div>
+        </div>
+
+        <div class="cv-item">
+          <div class="item-head">
+            <div class="item-title">Diplôme National du Brevet</div>
+            <span class="item-date">2020 – 2021</span>
+          </div>
+          <div class="item-sub">Collège Mathurin Régnier · Chartres</div>
+        </div>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="cv-section">
+        <div class="sec-head"><h2>Expérience professionnelle</h2><div class="sec-line"></div></div>
+
+        <div class="cv-item">
+          <div class="item-head">
+            <div class="item-title">Développeur Web — Stagiaire</div>
+            <span class="item-date">Mai – Juin 2025</span>
+          </div>
+          <div class="item-sub">Sport Pro Performance Solidarity · Chartres · 4 semaines</div>
+          <ul class="item-list">
+            <li>Analyse du besoin client et rédaction des spécifications techniques</li>
+            <li>Maquettage des pages (wireframes Figma)</li>
+            <li>Développement front-end complet HTML / CSS / JavaScript</li>
+            <li>Mise en ligne et tests de compatibilité multi-navigateurs</li>
+            <li>Présentation du livrable et recette client</li>
+          </ul>
+        </div>
+
+        <div class="cv-item">
+          <div class="item-head">
+            <div class="item-title">Développeur Web — Site Vitrine</div>
+            <span class="item-date">Jan – Fév 2026</span>
+          </div>
+          <div class="item-sub">Sport Pro Performance Solidarity · Chartres · 8 semaines</div>
+          <ul class="item-list">
+            <li>Analyse du besoin client et rédaction des spécifications techniques</li>
+            <li>Maquettage des pages (wireframes Figma)</li>
+            <li>Développement front-end complet HTML / CSS / JavaScript</li>
+            <li>Mise en ligne et tests de compatibilité multi-navigateurs</li>
+            <li>Présentation du livrable et recette client</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PROJETS -->
+      <div class="cv-section">
+        <div class="sec-head"><h2>Projets</h2><div class="sec-line"></div></div>
+
+        <div class="cv-item">
+          <div class="item-head">
+            <div class="item-title">Portfolio BTS SIO SLAM</div>
+            <span class="item-date">2026</span>
+          </div>
+          <div class="item-desc">Site portfolio single-page avec animations au scroll, mode sombre/clair, filtres de projets et formulaire de contact. HTML · CSS · JavaScript</div>
+        </div>
+
+        <div class="cv-item">
+          <div class="item-head">
+            <div class="item-title">Application de Suivi Sportif</div>
+            <span class="item-date">2026</span>
+          </div>
+          <div class="item-desc">Application web pour gérer et visualiser des données d'entraînement : sessions, performances et statistiques. HTML · CSS · JavaScript</div>
+        </div>
+
+        <div class="cv-item">
+          <div class="item-head">
+            <div class="item-title">TP — Inscription BTS Fulbert</div>
+            <span class="item-date">2025–2026</span>
+          </div>
+          <div class="item-desc">Page web dynamique avec formulaire d'inscription au BTS respectant la charte graphique du gouvernement. Réalisé en cours de développement web.</div>
+        </div>
+
+        <div class="cv-item">
+          <div class="item-head">
+            <div class="item-title">TP — Application Bancaire avec option Crypto</div>
+            <span class="item-date">2025–2026</span>
+          </div>
+          <div class="item-desc">Application web de gestion bancaire avec intégration d'une option de trading de cryptomonnaies prenant le cours actuel des cryptomonnaies.</div>
+        </div>
+      </div>
+
+      <!-- SPORT -->
+      <div class="cv-section">
+        <div class="sec-head"><h2>Sport de haut niveau</h2><div class="sec-line"></div></div>
+        <div class="cv-item">
+          <div class="item-head">
+            <div class="item-title">Handballeur — Nationale 1</div>
+            <span class="item-date">2024 – présent</span>
+          </div>
+          <div class="item-sub">C' Chartres Métropole Handball</div>
+          <div class="item-desc">Centre de formation intégré en parallèle du BTS. Développe rigueur, esprit d'équipe et gestion du stress.</div>
+        </div>
+        <div class="cv-item">
+          <div class="item-head">
+            <div class="item-title">Pôle Espoir Handball</div>
+            <span class="item-date">2020 – 2024</span>
+          </div>
+          <div class="item-sub">Ligue Centre Val de Loire · Chartres</div>
+        </div>
+      </div>
+
+    </div><!-- end cv-main -->
+
+    <!-- SIDEBAR -->
+    <div class="cv-side">
+
+      <!-- CONTACT -->
+      <div class="cv-section">
+        <div class="sec-head"><h2>Contact</h2><div class="sec-line"></div></div>
+        <div class="sinfo"><span class="ico">📍</span><span>Chartres (28)</span></div>
+        <div class="sinfo"><span class="ico">✉️</span><span>williamsdrg.dev@gmail.com</span></div>
+        <div class="sinfo"><span class="ico">🎂</span><span>10 avril 2006</span></div>
+      </div>
+
+      <!-- COMPÉTENCES -->
+      <div class="cv-section">
+        <div class="sec-head"><h2>Compétences</h2><div class="sec-line"></div></div>
+
+        <div class="sk"><div class="sk-name"><span>HTML5 / CSS3</span><span class="sk-level">Intermédiaire</span></div><div class="sk-bar"><div class="sk-fill" style="width:70%"></div></div></div>
+        <div class="sk"><div class="sk-name"><span>JavaScript</span><span class="sk-level">Débutant+</span></div><div class="sk-bar"><div class="sk-fill" style="width:42%"></div></div></div>
+        <div class="sk"><div class="sk-name"><span>PHP</span><span class="sk-level">Débutant</span></div><div class="sk-bar"><div class="sk-fill" style="width:30%"></div></div></div>
+        <div class="sk"><div class="sk-name"><span>MySQL / SQL</span><span class="sk-level">Débutant+</span></div><div class="sk-bar"><div class="sk-fill" style="width:60%"></div></div></div>
+        <div class="sk"><div class="sk-name"><span>Python</span><span class="sk-level">Débutant</span></div><div class="sk-bar"><div class="sk-fill" style="width:30%"></div></div></div>
+        <div class="sk"><div class="sk-name"><span>Git / GitHub</span><span class="sk-level">Intermédiaire</span></div><div class="sk-bar"><div class="sk-fill" style="width:60%"></div></div></div>
+        <div class="sk"><div class="sk-name"><span>UML / Modélisation</span><span class="sk-level">Intermédiare</span></div><div class="sk-bar"><div class="sk-fill" style="width:48%"></div></div></div>
+      </div>
+
+      <!-- OUTILS -->
+      <div class="cv-section">
+        <div class="sec-head"><h2>Outils</h2><div class="sec-line"></div></div>
+        <div class="tag-cloud">
+          <span class="stag">VS Code</span>
+          <span class="stag">Git</span>
+          <span class="stag">GitHub</span>
+          <span class="stag">Figma</span>
+          <span class="stag">PhpMyAdmin</span>
+          <span class="stag">Linux</span>
+          <span class="stag">Notion</span>
+          <span class="stag">WAMP</span>
+        </div>
+      </div>
+
+      <!-- LANGUES -->
+      <div class="cv-section">
+        <div class="sec-head"><h2>Langues</h2><div class="sec-line"></div></div>
+        <div class="sk"><div class="sk-name"><span>Français</span><span class="sk-level">Natif</span></div><div class="sk-bar"><div class="sk-fill" style="width:100%"></div></div></div>
+        <div class="sk"><div class="sk-name"><span>Anglais <span class="sk-level">(TOEIC - En cours)</span></span><span class="sk-level">B1</span></div><div class="sk-bar"><div class="sk-fill" style="width:48%"></div></div></div>
+      </div>
+
+      <!-- CENTRES D'INTÉRÊT -->
+      <div class="cv-section">
+        <div class="sec-head"><h2>Centres d'intérêt</h2><div class="sec-line"></div></div>
+        <div class="tag-cloud">
+          <span class="stag">🤾 Handball</span>
+          <span class="stag">💻 Dev web</span>
+          <span class="stag">🎮 Jeux vidéo</span>
+          <span class="stag">🎵 Musique</span>
+          <span class="stag">✈️ Film</span>
+        </div>
+      </div>
+
+    </div><!-- end cv-side -->
+  </div><!-- end cv-body -->
+
+</div><!-- end cv-page -->
+</div><!-- end cv-wrapper -->
+
 </body>
 </html>
