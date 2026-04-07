@@ -97,6 +97,4 @@ Je développe des projets pour améliorer mes compétences et préparer mon inse
 
 Ce projet est un projet personnel à but pédagogique.
 
----
 
-⭐ N’hésite pas à consulter le projet et à me faire des retours !
